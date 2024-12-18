@@ -93,6 +93,8 @@ WHERE  `phone` IS NULL;
 ### 9. Inserire nella tabella degli studenti un nuovo record con i propri dati (per il campo degree_id, inserire un valore casuale)
 
 ```
+INSERT INTO `students` (`degree_id`,`name`,`surname`,`date_of_birth`,`fiscal_code`,`enrolment_date`,`registration_number`,`email`)
+VALUES (25,'Damiano','Maugeri','1997-07-25','MGRDMN97L25C351X','2024-12-18',630000,'dfhddtys@utdt.it')
 
 ```
 
@@ -112,5 +114,6 @@ WHERE `id` = 58;
 ### 11. Eliminare dalla tabella studenti il record creato precedentemente al punto 9
 
 ```
-
+DELETE FROM `students`
+WHERE `id` = 5001
 ```
