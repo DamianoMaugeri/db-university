@@ -99,6 +99,12 @@ WHERE  `phone` IS NULL;
 ### 10. Cambiare il numero dell’ufficio del professor Pietro Rizzo in 126
 
 ```
+SELECT `id`
+FROM `teachers` WHERE `name` = 'Pietro' AND `surname`= 'Rizzo';
+
+UPDATE `teachers`
+SET `office_number` =126
+WHERE `id` = 58;
 
 ```
 
