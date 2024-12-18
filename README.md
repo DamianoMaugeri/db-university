@@ -8,6 +8,13 @@ WHERE `date_of_birth` LIKE '1990%';
 ```
 
 ```
+SELECT *
+FROM `students`
+WHERE  YEAR(`date_of_birth`) = 1990 ;
+
+```
+
+```
 SELECT count(*)
 FROM `students`
 WHERE `date_of_birth` LIKE '1990%'
