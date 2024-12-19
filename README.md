@@ -40,6 +40,12 @@ SELECT *
 FROM `students`
 WHERE `date_of_birth` < '1994-12-18';
 
+
+
+SELECT * , CURDATE() AS `cur_date`
+FROM `students`
+WHERE TIMESTAMPDIFF(YEAR, `date_of_birth`,CURDATE()) > 30
+
 ```
 
 
@@ -58,6 +64,11 @@ WHERE `period` = 'I semestre' AND `year` = 1 ;
 SELECT *
 FROM `exams`
 WHERE `date` = '2020/06/20' AND `hour` > '14:00:00' ;
+
+SELECT *
+FROM `exams`
+WHERE `date` = '2020/06/20' AND HOUR(`hour`) >= 14  ;
+
 
 ```
 
@@ -83,7 +94,7 @@ FROM `departments`;
 ### 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
 
 ```
-SELECT count(*) AS `numer_of_teachers_without_phone`
+SELECT count(*) AS `number_of_teachers_without_phone`
 FROM `teachers`
 WHERE  `phone` IS NULL;
 
