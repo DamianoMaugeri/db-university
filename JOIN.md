@@ -15,7 +15,7 @@ SELECT `d`.*
 FROM `degrees` AS `d`
 JOIN `departments` AS `dep`
 ON `d`.`department_id`= `dep`.`id`
-WHERE `dep`.`name` = 'Dipartimento di Neuroscienze'
+WHERE `dep`.`name` = 'Dipartimento di Neuroscienze' AND `d`.`level`= 'magistrale'
 
 
 ```
@@ -80,6 +80,17 @@ WHERE `dep`.`name`= 'Dipartimento di Matematica'
 
 ### 7. BONUS: Selezionare per ogni studente il numero di tentativi sostenuti per ogni esame, stampando anche il voto massimo. Successivamente, filtrare i tentativi con  voto minimo 18.
 ```
+SELECT  `s`.`id`, `s`.`name`,`s`.`surname`  ,`c`.`name` AS `nome_della_materia`, COUNT(`e`.`course_id`) AS `numero_di_esami_per_la_materia`, MAX(`e_s`.`vote`) AS `voto_massimo_per_la_materia`
+FROM `students` AS `s`
+JOIN `exam_student` AS `e_s`
+ON `e_s`.`student_id`= `s`.`id`
+JOIN `exams` AS `e`
+ON `e`.`id` = `e_s`.`exam_id`
+JOIN `courses` AS `c`
+ON `e`.`course_id` = `c`.`id`
+GROUP BY `s`.`id` , `c`.`id`
+HAVING  `voto_massimo_per_la_materia` >= 18
+
 
 
 ```
